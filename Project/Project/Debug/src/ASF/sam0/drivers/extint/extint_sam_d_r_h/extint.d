@@ -120,7 +120,9 @@ src/ASF/sam0/drivers/extint/extint_sam_d_r_h/extint.d \
  ../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h/reset.h \
  ../src/ASF/sam0/drivers/system/interrupt/system_interrupt.h \
  ../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samd21/system_interrupt_features.h \
- ../src/ASF/sam0/drivers/extint/extint.h ../src/config/conf_extint.h
+ ../src/ASF/sam0/drivers/extint/extint.h \
+ ../src/ASF/sam0/drivers/extint/extint_callback.h \
+ ../src/config/conf_extint.h
 
 ../src/ASF/sam0/drivers/system/system.h:
 
@@ -365,5 +367,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samd21/system_interrupt_features.h:
 
 ../src/ASF/sam0/drivers/extint/extint.h:
+
+../src/ASF/sam0/drivers/extint/extint_callback.h:
 
 ../src/config/conf_extint.h:
