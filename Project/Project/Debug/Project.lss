@@ -3,35 +3,35 @@ Project.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000009f4  00000000  00000000  00010000  2**2
+  0 .text         00000a64  00000000  00000000  00010000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .relocate     00000004  20000000  000009f4  00020000  2**0
+  1 .relocate     00000004  20000000  00000a64  00020000  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000080  20000004  000009f8  00020004  2**2
+  2 .bss          00000084  20000004  00000a68  00020004  2**2
                   ALLOC
-  3 .stack        00002004  20000084  00000a78  00020004  2**0
+  3 .stack        00002000  20000088  00000aec  00020004  2**0
                   ALLOC
   4 .ARM.attributes 00000028  00000000  00000000  00020004  2**0
                   CONTENTS, READONLY
   5 .comment      00000059  00000000  00000000  0002002c  2**0
                   CONTENTS, READONLY
-  6 .debug_info   0001388a  00000000  00000000  00020085  2**0
+  6 .debug_info   00014d1b  00000000  00000000  00020085  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00002315  00000000  00000000  0003390f  2**0
+  7 .debug_abbrev 000025d5  00000000  00000000  00034da0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00002125  00000000  00000000  00035c24  2**0
+  8 .debug_loc    00002335  00000000  00000000  00037375  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 000002c8  00000000  00000000  00037d49  2**0
+  9 .debug_aranges 00000300  00000000  00000000  000396aa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 000002a0  00000000  00000000  00038011  2**0
+ 10 .debug_ranges 000002c8  00000000  00000000  000399aa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  00018940  00000000  00000000  000382b1  2**0
+ 11 .debug_macro  00018f1a  00000000  00000000  00039c72  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   00007096  00000000  00000000  00050bf1  2**0
+ 12 .debug_line   00007cc2  00000000  00000000  00052b8c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    0008c6d2  00000000  00000000  00057c87  2**0
+ 13 .debug_str    0008c75c  00000000  00000000  0005a84e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00000614  00000000  00000000  000e435c  2**2
+ 14 .debug_frame  0000066c  00000000  00000000  000e6fac  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -66,7 +66,7 @@ Disassembly of section .text:
   ce:	bd10      	pop	{r4, pc}
   d0:	20000004 	.word	0x20000004
   d4:	00000000 	.word	0x00000000
-  d8:	000009f4 	.word	0x000009f4
+  d8:	00000a64 	.word	0x00000a64
 
 000000dc <frame_dummy>:
   dc:	4b08      	ldr	r3, [pc, #32]	; (100 <frame_dummy+0x24>)
@@ -89,8 +89,8 @@ Disassembly of section .text:
   fe:	e7f9      	b.n	f4 <frame_dummy+0x18>
  100:	00000000 	.word	0x00000000
  104:	20000008 	.word	0x20000008
- 108:	000009f4 	.word	0x000009f4
- 10c:	000009f4 	.word	0x000009f4
+ 108:	00000a64 	.word	0x00000a64
+ 10c:	00000a64 	.word	0x00000a64
  110:	00000000 	.word	0x00000000
 
 00000114 <extint_register_callback>:
@@ -861,7 +861,7 @@ enum status_code system_clock_source_enable(
  464:	2000      	movs	r0, #0
 }
  466:	4770      	bx	lr
- 468:	000009b0 	.word	0x000009b0
+ 468:	00000a20 	.word	0x00000a20
  46c:	40000800 	.word	0x40000800
  470:	20000028 	.word	0x20000028
 
@@ -1774,189 +1774,309 @@ void Dummy_Handler(void)
  886:	4b0e      	ldr	r3, [pc, #56]	; (8c0 <Reset_Handler+0xe0>)
  888:	4798      	blx	r3
  88a:	e7fe      	b.n	88a <Reset_Handler+0xaa>
- 88c:	000009f4 	.word	0x000009f4
+ 88c:	00000a64 	.word	0x00000a64
  890:	20000000 	.word	0x20000000
  894:	20000004 	.word	0x20000004
  898:	20000004 	.word	0x20000004
  89c:	20000004 	.word	0x20000004
- 8a0:	20000084 	.word	0x20000084
+ 8a0:	20000088 	.word	0x20000088
  8a4:	e000ed00 	.word	0xe000ed00
  8a8:	00000000 	.word	0x00000000
  8ac:	41007000 	.word	0x41007000
  8b0:	41005000 	.word	0x41005000
  8b4:	41004800 	.word	0x41004800
  8b8:	41004000 	.word	0x41004000
- 8bc:	00000969 	.word	0x00000969
- 8c0:	0000093d 	.word	0x0000093d
+ 8bc:	000009d9 	.word	0x000009d9
+ 8c0:	000009a5 	.word	0x000009a5
 
-000008c4 <extint_detection_callback>:
-	return (port_base->IN.reg & pin_mask);
- 8c4:	4b06      	ldr	r3, [pc, #24]	; (8e0 <extint_detection_callback+0x1c>)
- 8c6:	6a1b      	ldr	r3, [r3, #32]
+000008c4 <led_config>:
+#include <led-driver.h>
+
+bool ledValue;
+
+void led_config() {
+	ledValue = false;
+ 8c4:	2200      	movs	r2, #0
+ 8c6:	4b01      	ldr	r3, [pc, #4]	; (8cc <led_config+0x8>)
+ 8c8:	701a      	strb	r2, [r3, #0]
+}
+ 8ca:	4770      	bx	lr
+ 8cc:	20000084 	.word	0x20000084
+
+000008d0 <led_on>:
+
+void led_on(uint8_t led_num) {
+	ledValue = false;
+ 8d0:	2200      	movs	r2, #0
+ 8d2:	4b08      	ldr	r3, [pc, #32]	; (8f4 <led_on+0x24>)
+ 8d4:	701a      	strb	r2, [r3, #0]
+	uint8_t group_index = (gpio_pin / 32);
+
+	/* Array of available ports */
+	Port *const ports[PORT_INST_NUM] = PORT_INSTS;
+
+	if (port_index < PORT_INST_NUM) {
+ 8d6:	09c2      	lsrs	r2, r0, #7
+		return &(ports[port_index]->Group[group_index]);
+	} else {
+		Assert(false);
+		return NULL;
+ 8d8:	2300      	movs	r3, #0
+	if (port_index < PORT_INST_NUM) {
+ 8da:	2a00      	cmp	r2, #0
+ 8dc:	d104      	bne.n	8e8 <led_on+0x18>
+		return &(ports[port_index]->Group[group_index]);
+ 8de:	0943      	lsrs	r3, r0, #5
+ 8e0:	01db      	lsls	r3, r3, #7
+ 8e2:	4a05      	ldr	r2, [pc, #20]	; (8f8 <led_on+0x28>)
+ 8e4:	4694      	mov	ip, r2
+ 8e6:	4463      	add	r3, ip
+static inline void port_pin_set_output_level(
+		const uint8_t gpio_pin,
+		const bool level)
+{
+	PortGroup *const port_base = port_get_group_from_gpio_pin(gpio_pin);
+	uint32_t pin_mask  = (1UL << (gpio_pin % 32));
+ 8e8:	221f      	movs	r2, #31
+ 8ea:	4010      	ands	r0, r2
+ 8ec:	3a1e      	subs	r2, #30
+ 8ee:	4082      	lsls	r2, r0
+
+	/* Set the pin to high or low atomically based on the requested level */
 	if (level) {
- 8c8:	041b      	lsls	r3, r3, #16
- 8ca:	d404      	bmi.n	8d6 <extint_detection_callback+0x12>
+		port_base->OUTSET.reg = pin_mask;
 	} else {
 		port_base->OUTCLR.reg = pin_mask;
- 8cc:	2280      	movs	r2, #128	; 0x80
- 8ce:	05d2      	lsls	r2, r2, #23
- 8d0:	4b04      	ldr	r3, [pc, #16]	; (8e4 <extint_detection_callback+0x20>)
- 8d2:	615a      	str	r2, [r3, #20]
+ 8f0:	615a      	str	r2, [r3, #20]
+	port_pin_set_output_level(led_num, ledValue);
+}
+ 8f2:	4770      	bx	lr
+ 8f4:	20000084 	.word	0x20000084
+ 8f8:	41004400 	.word	0x41004400
+
+000008fc <led_off>:
+
+void led_off(uint8_t led_num) {
+	ledValue = true;
+ 8fc:	2201      	movs	r2, #1
+ 8fe:	4b08      	ldr	r3, [pc, #32]	; (920 <led_off+0x24>)
+ 900:	701a      	strb	r2, [r3, #0]
+	if (port_index < PORT_INST_NUM) {
+ 902:	09c2      	lsrs	r2, r0, #7
+		return NULL;
+ 904:	2300      	movs	r3, #0
+	if (port_index < PORT_INST_NUM) {
+ 906:	2a00      	cmp	r2, #0
+ 908:	d104      	bne.n	914 <led_off+0x18>
+		return &(ports[port_index]->Group[group_index]);
+ 90a:	0943      	lsrs	r3, r0, #5
+ 90c:	01db      	lsls	r3, r3, #7
+ 90e:	4a05      	ldr	r2, [pc, #20]	; (924 <led_off+0x28>)
+ 910:	4694      	mov	ip, r2
+ 912:	4463      	add	r3, ip
+	uint32_t pin_mask  = (1UL << (gpio_pin % 32));
+ 914:	221f      	movs	r2, #31
+ 916:	4010      	ands	r0, r2
+ 918:	3a1e      	subs	r2, #30
+ 91a:	4082      	lsls	r2, r0
+		port_base->OUTSET.reg = pin_mask;
+ 91c:	619a      	str	r2, [r3, #24]
+	port_pin_set_output_level(led_num, ledValue);
+}
+ 91e:	4770      	bx	lr
+ 920:	20000084 	.word	0x20000084
+ 924:	41004400 	.word	0x41004400
+
+00000928 <extint_detection_callback>:
+ extint_register_callback(extint_detection_callback, BUTTON_0_EIC_LINE, EXTINT_CALLBACK_TYPE_DETECT);
+ extint_chan_enable_callback(BUTTON_0_EIC_LINE, EXTINT_CALLBACK_TYPE_DETECT);
+}
 
 void extint_detection_callback(void)
 {
+ 928:	b510      	push	{r4, lr}
+	return (port_base->IN.reg & pin_mask);
+ 92a:	4b06      	ldr	r3, [pc, #24]	; (944 <extint_detection_callback+0x1c>)
+ 92c:	6a1b      	ldr	r3, [r3, #32]
  bool pin_state = port_pin_get_input_level(BUTTON_0_PIN);
- port_pin_set_output_level(LED_0_PIN, pin_state);
+ /*port_pin_set_output_level(LED_0_PIN, pin_state);*/
+ /*led_toggle(LED_0_PIN);*/
+ 
+ if (pin_state) {
+ 92e:	041b      	lsls	r3, r3, #16
+ 930:	d403      	bmi.n	93a <extint_detection_callback+0x12>
+	led_off(LED_0_PIN);
+ } else {
+	led_on(LED_0_PIN);
+ 932:	203e      	movs	r0, #62	; 0x3e
+ 934:	4b04      	ldr	r3, [pc, #16]	; (948 <extint_detection_callback+0x20>)
+ 936:	4798      	blx	r3
+ }
 }
- 8d4:	4770      	bx	lr
-		port_base->OUTSET.reg = pin_mask;
- 8d6:	2280      	movs	r2, #128	; 0x80
- 8d8:	05d2      	lsls	r2, r2, #23
- 8da:	4b02      	ldr	r3, [pc, #8]	; (8e4 <extint_detection_callback+0x20>)
- 8dc:	619a      	str	r2, [r3, #24]
- 8de:	e7f9      	b.n	8d4 <extint_detection_callback+0x10>
- 8e0:	41004400 	.word	0x41004400
- 8e4:	41004480 	.word	0x41004480
+ 938:	bd10      	pop	{r4, pc}
+	led_off(LED_0_PIN);
+ 93a:	203e      	movs	r0, #62	; 0x3e
+ 93c:	4b03      	ldr	r3, [pc, #12]	; (94c <extint_detection_callback+0x24>)
+ 93e:	4798      	blx	r3
+ 940:	e7fa      	b.n	938 <extint_detection_callback+0x10>
+ 942:	46c0      	nop			; (mov r8, r8)
+ 944:	41004400 	.word	0x41004400
+ 948:	000008d1 	.word	0x000008d1
+ 94c:	000008fd 	.word	0x000008fd
 
-000008e8 <configure_extint_channel>:
+00000950 <configure_extint_channel>:
 {
- 8e8:	b510      	push	{r4, lr}
- 8ea:	b084      	sub	sp, #16
+ 950:	b510      	push	{r4, lr}
+ 952:	b084      	sub	sp, #16
  extint_chan_get_config_defaults(&config_extint_chan);
- 8ec:	ac01      	add	r4, sp, #4
- 8ee:	0020      	movs	r0, r4
- 8f0:	4b07      	ldr	r3, [pc, #28]	; (910 <configure_extint_channel+0x28>)
- 8f2:	4798      	blx	r3
+ 954:	ac01      	add	r4, sp, #4
+ 956:	0020      	movs	r0, r4
+ 958:	4b07      	ldr	r3, [pc, #28]	; (978 <configure_extint_channel+0x28>)
+ 95a:	4798      	blx	r3
  config_extint_chan.gpio_pin = BUTTON_0_EIC_PIN;
- 8f4:	230f      	movs	r3, #15
- 8f6:	9301      	str	r3, [sp, #4]
+ 95c:	230f      	movs	r3, #15
+ 95e:	9301      	str	r3, [sp, #4]
  config_extint_chan.gpio_pin_mux = BUTTON_0_EIC_MUX;
- 8f8:	2300      	movs	r3, #0
- 8fa:	6063      	str	r3, [r4, #4]
+ 960:	2300      	movs	r3, #0
+ 962:	6063      	str	r3, [r4, #4]
  config_extint_chan.gpio_pin_pull = EXTINT_PULL_UP;
- 8fc:	3301      	adds	r3, #1
- 8fe:	7223      	strb	r3, [r4, #8]
+ 964:	3301      	adds	r3, #1
+ 966:	7223      	strb	r3, [r4, #8]
  config_extint_chan.detection_criteria = EXTINT_DETECT_BOTH;
- 900:	3302      	adds	r3, #2
- 902:	72e3      	strb	r3, [r4, #11]
+ 968:	3302      	adds	r3, #2
+ 96a:	72e3      	strb	r3, [r4, #11]
  extint_chan_set_config(BUTTON_0_EIC_LINE, &config_extint_chan);
- 904:	0021      	movs	r1, r4
- 906:	200f      	movs	r0, #15
- 908:	4b02      	ldr	r3, [pc, #8]	; (914 <configure_extint_channel+0x2c>)
- 90a:	4798      	blx	r3
+ 96c:	0021      	movs	r1, r4
+ 96e:	200f      	movs	r0, #15
+ 970:	4b02      	ldr	r3, [pc, #8]	; (97c <configure_extint_channel+0x2c>)
+ 972:	4798      	blx	r3
 }
- 90c:	b004      	add	sp, #16
- 90e:	bd10      	pop	{r4, pc}
- 910:	00000239 	.word	0x00000239
- 914:	0000024d 	.word	0x0000024d
+ 974:	b004      	add	sp, #16
+ 976:	bd10      	pop	{r4, pc}
+ 978:	00000239 	.word	0x00000239
+ 97c:	0000024d 	.word	0x0000024d
 
-00000918 <configure_extint_callbacks>:
+00000980 <configure_extint_callbacks>:
 {
- 918:	b510      	push	{r4, lr}
+ 980:	b510      	push	{r4, lr}
  extint_register_callback(extint_detection_callback, BUTTON_0_EIC_LINE, EXTINT_CALLBACK_TYPE_DETECT);
- 91a:	2200      	movs	r2, #0
- 91c:	210f      	movs	r1, #15
- 91e:	4804      	ldr	r0, [pc, #16]	; (930 <configure_extint_callbacks+0x18>)
- 920:	4b04      	ldr	r3, [pc, #16]	; (934 <configure_extint_callbacks+0x1c>)
- 922:	4798      	blx	r3
+ 982:	2200      	movs	r2, #0
+ 984:	210f      	movs	r1, #15
+ 986:	4804      	ldr	r0, [pc, #16]	; (998 <configure_extint_callbacks+0x18>)
+ 988:	4b04      	ldr	r3, [pc, #16]	; (99c <configure_extint_callbacks+0x1c>)
+ 98a:	4798      	blx	r3
  extint_chan_enable_callback(BUTTON_0_EIC_LINE, EXTINT_CALLBACK_TYPE_DETECT);
- 924:	2100      	movs	r1, #0
- 926:	200f      	movs	r0, #15
- 928:	4b03      	ldr	r3, [pc, #12]	; (938 <configure_extint_callbacks+0x20>)
- 92a:	4798      	blx	r3
+ 98c:	2100      	movs	r1, #0
+ 98e:	200f      	movs	r0, #15
+ 990:	4b03      	ldr	r3, [pc, #12]	; (9a0 <configure_extint_callbacks+0x20>)
+ 992:	4798      	blx	r3
 }
- 92c:	bd10      	pop	{r4, pc}
- 92e:	46c0      	nop			; (mov r8, r8)
- 930:	000008c5 	.word	0x000008c5
- 934:	00000115 	.word	0x00000115
- 938:	00000141 	.word	0x00000141
+ 994:	bd10      	pop	{r4, pc}
+ 996:	46c0      	nop			; (mov r8, r8)
+ 998:	00000929 	.word	0x00000929
+ 99c:	00000115 	.word	0x00000115
+ 9a0:	00000141 	.word	0x00000141
 
-0000093c <main>:
+000009a4 <main>:
 {
- 93c:	b510      	push	{r4, lr}
+ 9a4:	b510      	push	{r4, lr}
+	led_config();
+ 9a6:	4b07      	ldr	r3, [pc, #28]	; (9c4 <main+0x20>)
+ 9a8:	4798      	blx	r3
 	system_init();
- 93e:	4b06      	ldr	r3, [pc, #24]	; (958 <main+0x1c>)
- 940:	4798      	blx	r3
+ 9aa:	4b07      	ldr	r3, [pc, #28]	; (9c8 <main+0x24>)
+ 9ac:	4798      	blx	r3
 	configure_extint_channel();
- 942:	4b06      	ldr	r3, [pc, #24]	; (95c <main+0x20>)
- 944:	4798      	blx	r3
+ 9ae:	4b07      	ldr	r3, [pc, #28]	; (9cc <main+0x28>)
+ 9b0:	4798      	blx	r3
 	configure_extint_callbacks();
- 946:	4b06      	ldr	r3, [pc, #24]	; (960 <main+0x24>)
- 948:	4798      	blx	r3
+ 9b2:	4b07      	ldr	r3, [pc, #28]	; (9d0 <main+0x2c>)
+ 9b4:	4798      	blx	r3
+ *
+ * Enables global interrupts in the device to fire any enabled interrupt handlers.
+ */
+static inline void system_interrupt_enable_global(void)
+{
 	cpu_irq_enable();
- 94a:	2201      	movs	r2, #1
- 94c:	4b05      	ldr	r3, [pc, #20]	; (964 <main+0x28>)
- 94e:	701a      	strb	r2, [r3, #0]
+ 9b6:	2201      	movs	r2, #1
+ 9b8:	4b06      	ldr	r3, [pc, #24]	; (9d4 <main+0x30>)
+ 9ba:	701a      	strb	r2, [r3, #0]
+  \details Ensures the apparent order of the explicit memory operations before
+           and after the instruction, without ensuring their completion.
+ */
+__STATIC_FORCEINLINE void __DMB(void)
+{
   __ASM volatile ("dmb 0xF":::"memory");
- 950:	f3bf 8f5f 	dmb	sy
+ 9bc:	f3bf 8f5f 	dmb	sy
   __ASM volatile ("cpsie i" : : : "memory");
- 954:	b662      	cpsie	i
- 956:	e7fe      	b.n	956 <main+0x1a>
- 958:	000007b1 	.word	0x000007b1
- 95c:	000008e9 	.word	0x000008e9
- 960:	00000919 	.word	0x00000919
- 964:	20000000 	.word	0x20000000
+ 9c0:	b662      	cpsie	i
+ 9c2:	e7fe      	b.n	9c2 <main+0x1e>
+ 9c4:	000008c5 	.word	0x000008c5
+ 9c8:	000007b1 	.word	0x000007b1
+ 9cc:	00000951 	.word	0x00000951
+ 9d0:	00000981 	.word	0x00000981
+ 9d4:	20000000 	.word	0x20000000
 
-00000968 <__libc_init_array>:
- 968:	b570      	push	{r4, r5, r6, lr}
- 96a:	2600      	movs	r6, #0
- 96c:	4d0c      	ldr	r5, [pc, #48]	; (9a0 <__libc_init_array+0x38>)
- 96e:	4c0d      	ldr	r4, [pc, #52]	; (9a4 <__libc_init_array+0x3c>)
- 970:	1b64      	subs	r4, r4, r5
- 972:	10a4      	asrs	r4, r4, #2
- 974:	42a6      	cmp	r6, r4
- 976:	d109      	bne.n	98c <__libc_init_array+0x24>
- 978:	2600      	movs	r6, #0
- 97a:	f000 f82b 	bl	9d4 <_init>
- 97e:	4d0a      	ldr	r5, [pc, #40]	; (9a8 <__libc_init_array+0x40>)
- 980:	4c0a      	ldr	r4, [pc, #40]	; (9ac <__libc_init_array+0x44>)
- 982:	1b64      	subs	r4, r4, r5
- 984:	10a4      	asrs	r4, r4, #2
- 986:	42a6      	cmp	r6, r4
- 988:	d105      	bne.n	996 <__libc_init_array+0x2e>
- 98a:	bd70      	pop	{r4, r5, r6, pc}
- 98c:	00b3      	lsls	r3, r6, #2
- 98e:	58eb      	ldr	r3, [r5, r3]
- 990:	4798      	blx	r3
- 992:	3601      	adds	r6, #1
- 994:	e7ee      	b.n	974 <__libc_init_array+0xc>
- 996:	00b3      	lsls	r3, r6, #2
- 998:	58eb      	ldr	r3, [r5, r3]
- 99a:	4798      	blx	r3
- 99c:	3601      	adds	r6, #1
- 99e:	e7f2      	b.n	986 <__libc_init_array+0x1e>
- 9a0:	000009e0 	.word	0x000009e0
- 9a4:	000009e0 	.word	0x000009e0
- 9a8:	000009e0 	.word	0x000009e0
- 9ac:	000009e4 	.word	0x000009e4
- 9b0:	000003f8 	.word	0x000003f8
- 9b4:	000003d8 	.word	0x000003d8
- 9b8:	000003d8 	.word	0x000003d8
- 9bc:	00000464 	.word	0x00000464
- 9c0:	000003ea 	.word	0x000003ea
- 9c4:	00000406 	.word	0x00000406
- 9c8:	000003dc 	.word	0x000003dc
- 9cc:	00000414 	.word	0x00000414
- 9d0:	00000454 	.word	0x00000454
+000009d8 <__libc_init_array>:
+ 9d8:	b570      	push	{r4, r5, r6, lr}
+ 9da:	2600      	movs	r6, #0
+ 9dc:	4d0c      	ldr	r5, [pc, #48]	; (a10 <__libc_init_array+0x38>)
+ 9de:	4c0d      	ldr	r4, [pc, #52]	; (a14 <__libc_init_array+0x3c>)
+ 9e0:	1b64      	subs	r4, r4, r5
+ 9e2:	10a4      	asrs	r4, r4, #2
+ 9e4:	42a6      	cmp	r6, r4
+ 9e6:	d109      	bne.n	9fc <__libc_init_array+0x24>
+ 9e8:	2600      	movs	r6, #0
+ 9ea:	f000 f82b 	bl	a44 <_init>
+ 9ee:	4d0a      	ldr	r5, [pc, #40]	; (a18 <__libc_init_array+0x40>)
+ 9f0:	4c0a      	ldr	r4, [pc, #40]	; (a1c <__libc_init_array+0x44>)
+ 9f2:	1b64      	subs	r4, r4, r5
+ 9f4:	10a4      	asrs	r4, r4, #2
+ 9f6:	42a6      	cmp	r6, r4
+ 9f8:	d105      	bne.n	a06 <__libc_init_array+0x2e>
+ 9fa:	bd70      	pop	{r4, r5, r6, pc}
+ 9fc:	00b3      	lsls	r3, r6, #2
+ 9fe:	58eb      	ldr	r3, [r5, r3]
+ a00:	4798      	blx	r3
+ a02:	3601      	adds	r6, #1
+ a04:	e7ee      	b.n	9e4 <__libc_init_array+0xc>
+ a06:	00b3      	lsls	r3, r6, #2
+ a08:	58eb      	ldr	r3, [r5, r3]
+ a0a:	4798      	blx	r3
+ a0c:	3601      	adds	r6, #1
+ a0e:	e7f2      	b.n	9f6 <__libc_init_array+0x1e>
+ a10:	00000a50 	.word	0x00000a50
+ a14:	00000a50 	.word	0x00000a50
+ a18:	00000a50 	.word	0x00000a50
+ a1c:	00000a54 	.word	0x00000a54
+ a20:	000003f8 	.word	0x000003f8
+ a24:	000003d8 	.word	0x000003d8
+ a28:	000003d8 	.word	0x000003d8
+ a2c:	00000464 	.word	0x00000464
+ a30:	000003ea 	.word	0x000003ea
+ a34:	00000406 	.word	0x00000406
+ a38:	000003dc 	.word	0x000003dc
+ a3c:	00000414 	.word	0x00000414
+ a40:	00000454 	.word	0x00000454
 
-000009d4 <_init>:
- 9d4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 9d6:	46c0      	nop			; (mov r8, r8)
- 9d8:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 9da:	bc08      	pop	{r3}
- 9dc:	469e      	mov	lr, r3
- 9de:	4770      	bx	lr
+00000a44 <_init>:
+ a44:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ a46:	46c0      	nop			; (mov r8, r8)
+ a48:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ a4a:	bc08      	pop	{r3}
+ a4c:	469e      	mov	lr, r3
+ a4e:	4770      	bx	lr
 
-000009e0 <__init_array_start>:
- 9e0:	000000dd 	.word	0x000000dd
+00000a50 <__init_array_start>:
+ a50:	000000dd 	.word	0x000000dd
 
-000009e4 <_fini>:
- 9e4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 9e6:	46c0      	nop			; (mov r8, r8)
- 9e8:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 9ea:	bc08      	pop	{r3}
- 9ec:	469e      	mov	lr, r3
- 9ee:	4770      	bx	lr
+00000a54 <_fini>:
+ a54:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ a56:	46c0      	nop			; (mov r8, r8)
+ a58:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ a5a:	bc08      	pop	{r3}
+ a5c:	469e      	mov	lr, r3
+ a5e:	4770      	bx	lr
 
-000009f0 <__fini_array_start>:
- 9f0:	000000b5 	.word	0x000000b5
+00000a60 <__fini_array_start>:
+ a60:	000000b5 	.word	0x000000b5

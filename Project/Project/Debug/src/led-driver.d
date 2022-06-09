@@ -1,4 +1,4 @@
-src/main.d src/main.o: ../src/main.c ../src/asf.h \
+src/led-driver.d src/led-driver.o: ../src/led-driver.c ../src/asf.h \
  ../src/ASF/sam0/utils/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  ../src/ASF/common/utils/parts.h ../src/ASF/sam0/utils/status_codes.h \

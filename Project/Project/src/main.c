@@ -32,6 +32,7 @@
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 #include <asf.h>
+#include <led-driver.h>
 
 void configure_extint_channel(void);
 void configure_extint_callbacks(void);
@@ -39,6 +40,7 @@ void extint_detection_callback(void);
 
 int main (void)
 {
+	led_config();
 	system_init();
 	configure_extint_channel();
 	configure_extint_callbacks();
@@ -68,5 +70,12 @@ void configure_extint_channel(void)
 void extint_detection_callback(void)
 {
  bool pin_state = port_pin_get_input_level(BUTTON_0_PIN);
- port_pin_set_output_level(LED_0_PIN, pin_state);
+ /*port_pin_set_output_level(LED_0_PIN, pin_state);*/
+ /*led_toggle(LED_0_PIN);*/
+ 
+ if (pin_state) {
+	led_off(LED_0_PIN);
+ } else {
+	led_on(LED_0_PIN);
+ }
 }

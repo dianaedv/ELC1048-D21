@@ -28,5 +28,7 @@ src\ASF\sam0\utils\cmsis\samd21\source\system_samd21.c
 
 src\ASF\sam0\utils\syscalls\gcc\syscalls.c
 
+src\led-driver.c
+
 src\main.c
 
